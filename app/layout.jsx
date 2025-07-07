@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { getSubdomain } from "../utils/getSubdomain";
 import ClientProviders from "../components/ClientProviders"; // plain import!
 import { SubdomainProvider } from "../context/SubdomainContext";
+import Sidebar from "../components/sidebar"; // Import the Sidebar component
 
 export const metadata = {
   title: "Agentic AI Demo Interface",
