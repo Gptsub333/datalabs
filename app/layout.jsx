@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { getSubdomain } from "../utils/getSubdomain";
 import ClientProviders from "../components/ClientProviders"; // plain import!
 import { SubdomainProvider } from "../context/SubdomainContext";
-import Sidebar from "../components/sidebar"; // Import the Sidebar component
+
 
 export const metadata = {
   title: "Agentic AI Demo Interface",
@@ -45,7 +45,7 @@ export default async function RootLayout({ children }) {
       <body>
         <ClientProviders organization={organization}>
           <SubdomainProvider subdomain={subdomain}>
-             <Sidebar />      {/* Place here for debug! */}
+
           {children}
           </SubdomainProvider>
         </ClientProviders>
