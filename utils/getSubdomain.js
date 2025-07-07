@@ -1,13 +1,28 @@
 export function getSubdomain(host) {
   host = host?.split(":")[0] || "";
-  if (!host.endsWith(".holbox.ai")) return null;
-   // Add dev support: allow subdomain as a query param or default to 'demo' on localhost
-  if (host === "localhost" || host === "10.7.1.44") {
-    // For local dev, optionally return a hardcoded org (e.g., "demo") or get from query
-    return "demo"; // or dynamically from ?org=org1 in URL
-  }
-  const parts = host.replace(".holbox.ai", "").split(".");
-  if (parts.length === 1 && parts[0] === "holbox") return null;
-  return parts.join(".");
-}
 
+  // Handle Vercel deploy: subdomain-project.vercel.app
+  if (host.endsWith(".vercel.app")) {
+    const subdomainPart = host.replace(".vercel.app", "");
+    // If your pattern is datalabs-weld, extract datalabs (before first dash)
+    if (subdomainPart.includes("-")) {
+      return subdomainPart.split("-")[0];
+    }
+    // If your pattern is datalabs.vercel.app, just use the whole part
+    return subdomainPart;
+  }
+
+  // Fallback for other domains (holbox.ai)
+  if (host.endsWith(".holbox.ai")) {
+    const parts = host.replace(".holbox.ai", "").split(".");
+    if (parts.length === 1 && parts[0] === "holbox") return null;
+    return parts.join(".");
+  }
+
+  // Localhost/dev fallback
+  if (host.startsWith("localhost") || host.startsWith("127.0.0.1")) {
+    return "demo";
+  }
+
+  return null;
+}

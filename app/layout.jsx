@@ -3,6 +3,7 @@ import "./globals.css";
 import { headers } from "next/headers";
 import { getSubdomain } from "../utils/getSubdomain";
 import ClientProviders from "../components/ClientProviders"; // plain import!
+import { SubdomainProvider } from "../context/SubdomainContext";
 
 export const metadata = {
   title: "Agentic AI Demo Interface",
@@ -13,10 +14,12 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   // Get subdomain from headers
-const headersList = await headers();
-const host = headersList.get("host") || "";
+  const host =  headers().get("host") || "";
+  const subdomain = getSubdomain(host);
 
-  let subdomain = getSubdomain(host);
+    // For debugging, log it
+  console.log("Host header:", host);
+  console.log("Extracted subdomain:", subdomain);
 
   if (!subdomain && (host.startsWith("localhost") || host.startsWith("10.7.1.44"))) {
     subdomain = "demo";
@@ -40,7 +43,9 @@ const host = headersList.get("host") || "";
     <html lang="en">
       <body>
         <ClientProviders organization={organization}>
+          <SubdomainProvider subdomain={subdomain}>
           {children}
+          </SubdomainProvider>
         </ClientProviders>
       </body>
     </html>

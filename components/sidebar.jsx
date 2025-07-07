@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { UserButton, useUser } from "@clerk/nextjs"
 import { useOrganization } from "../context/OrganizationContext";
+import { useSubdomain } from "../context/SubdomainContext";
 
 const chatbotTypes = [
   { name: "AI Assistant", id: "general" },
@@ -113,8 +114,10 @@ function SidebarContent({
 }) {
   const { user } = useUser();
   const org = useOrganization();
-  const orgName = org?.name || "Holbox"; // fallback for dev/local/test
+  const subdomain = useSubdomain();
+  const orgName = subdomain || "Holbox"; // fallback for dev/local/test
   console.log("Organization in Sidebar:", org?.name, org?.subdomain);
+   console.log("Sidebar subdomain from context:", subdomain);
 
   return (
     <div className="flex flex-col h-full p-3 rounded-xl border border-gray-300 bg-white shadow-sm">
