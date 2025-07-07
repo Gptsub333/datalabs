@@ -1,29 +1,28 @@
-import Loader from "../components/Loader";
-import ClientLayout from "./client-layout";
+// app/layout.jsx
 import "./globals.css";
-import { ClerkProvider, SignedIn, SignedOut, SignIn } from "@clerk/nextjs";
-import { AuthProvider } from "../context/AuthContext";
-import { OrganizationProvider } from "../context/OrganizationContext";  // Import OrganizationContext
-import { headers, cookies } from "next/headers";
+import { headers } from "next/headers";
 import { getSubdomain } from "../utils/getSubdomain";
+import ClientProviders from "../components/ClientProviders"; // plain import!
 
 export const metadata = {
   title: "Agentic AI Demo Interface",
   description: "Premium AI features showcase with modern design",
   generator: "Holbox.ai.dev",
+  icons: "/holboxai.svg"
 };
 
 export default async function RootLayout({ children }) {
-  // 1. Get subdomain from headers
-  const headersList = await headers();
-  const host = headersList.get("host");
-  const subdomain = getSubdomain(host);
-  if (!subdomain && (host === "localhost" || host === "127.0.0.1")) {
-    // fallback: get org from cookie, param, or default
+  // Get subdomain from headers
+const headersList = await headers();
+const host = headersList.get("host") || "";
+
+  let subdomain = getSubdomain(host);
+
+  if (!subdomain && (host.startsWith("localhost") || host.startsWith("10.7.1.44"))) {
     subdomain = "demo";
   }
 
-  // 2. Fetch organization data from your backend
+  // Fetch organization data
   let organization = null;
   if (subdomain) {
     try {
@@ -32,29 +31,17 @@ export default async function RootLayout({ children }) {
         { cache: "no-store" }
       );
       if (res.ok) organization = await res.json();
-    } catch (err) {
-      // fallback: organization = null
+    } catch {
+      organization = null;
     }
   }
 
-  // 3. Provide organization context to all children (including ClientLayout etc)
   return (
     <html lang="en">
       <body>
-        <OrganizationProvider value={organization || {}}>
-          <ClerkProvider>
-            <AuthProvider>
-              <SignedOut>
-                <div className="min-w-screen min-h-screen flex items-center justify-center ">
-                  <SignIn routing="hash" />
-                </div>
-              </SignedOut>
-              <SignedIn>
-                <ClientLayout>{children}</ClientLayout>
-              </SignedIn>
-            </AuthProvider>
-          </ClerkProvider>
-        </OrganizationProvider>
+        <ClientProviders organization={organization}>
+          {children}
+        </ClientProviders>
       </body>
     </html>
   );
