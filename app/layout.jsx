@@ -44,6 +44,7 @@ export default async function RootLayout({ children }) {
       <body>
         <ClientProviders organization={organization}>
           <SubdomainProvider subdomain={subdomain}>
+             <Sidebar />      {/* Place here for debug! */}
           {children}
           </SubdomainProvider>
         </ClientProviders>
