@@ -9,7 +9,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/datalabs',  // Set basePath for this app to be under /datalabs
+  basePath: '/datalabs',  // Make sure this is set correctly
 }
 
 export default nextConfig
+
