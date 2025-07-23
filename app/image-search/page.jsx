@@ -8,12 +8,18 @@ import ImageSearch from "./_components/image-search"
 import TextSearch from "./_components/text-search"
 import ResultsGrid from "./_components/results-grid"
 
+<<<<<<< HEAD
+=======
+const BACKEND_URL_IMAGE_SEARCH=process.env.NEXT_PUBLIC_BACKEND_URL_IMAGE_SEARCH
+
+>>>>>>> dev
 export default function HomePage() {
   const [mode, setMode] = useState("image")
   const [results, setResults] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
+<<<<<<< HEAD
   const handleSearch = async (query) => {
     setLoading(true)
     setError(null)
@@ -35,6 +41,56 @@ export default function HomePage() {
       setLoading(false)
     }
   }
+=======
+
+
+const handleSearch = async (query) => {
+  setLoading(true);
+  setError(null);
+  setResults([]);
+
+  try {
+    let response;
+
+    if (mode === "text") {
+      response = await fetch(`${BACKEND_URL_IMAGE_SEARCH}/search`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ query, k: 5 }),
+      });
+    } else {
+      const formData = new FormData();
+      formData.append("file", query);
+      formData.append("k", "5");
+
+      response = await fetch(`${BACKEND_URL_IMAGE_SEARCH}/search_by_image`, {
+        method: "POST",
+        body: formData,
+      });
+    }
+
+    if (!response.ok) throw new Error("API request failed");
+
+    const data = await response.json();
+
+    const formatted = data.map((item, idx) => ({
+      id: idx,
+      url: item.image_url,
+      alt: `Match from ${item.folder}, distance: ${item.distance.toFixed(2)}`,
+    }));
+
+    setResults(formatted);
+  } catch (err) {
+    console.error(err);
+    setError("Failed to fetch results. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
+
+>>>>>>> dev
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 md:pt-10 pb-12 sm:pb-16 md:pb-20">

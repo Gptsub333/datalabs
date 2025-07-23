@@ -4,8 +4,13 @@ import { ArrowRight, CheckCircle, Search } from "lucide-react"
 import { GradientButton } from "@/components/ui/gradient-button"
 import { Stethoscope, FileText, User, Bot, Shirt } from "lucide-react"
 import { motion } from "framer-motion"
+import EditableHeader from "@/components/EditableHeader"
+import { useState } from "react"
 
 export default function Home() {
+
+   const [headerText, setHeaderText] = useState("Agentic AI Demo Interface");
+  const [paraText, setParaText] = useState("Explore our suite of Agentic AI features and tools designed to transform your business operations");
   // Animation variants for staggered children
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -42,12 +47,19 @@ export default function Home() {
           variants={containerVariants}
         >
           <motion.div className="text-center mb-6 md:mb-10" variants={itemVariants}>
-            <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-5 text-gray-800 heading-font">
+            {/* <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-5 text-gray-800 heading-font">
                Agentic AI Demo Interface
             </h1>
             <p className="text-sm md:text-base text-gray-600 max-w-3xl mx-auto mb-5 md:mb-8 para-font">
               Explore our suite of Agentic AI features and tools designed to transform your business operations
-            </p>
+            </p> */}
+            <EditableHeader
+          headerText={headerText}
+          setHeaderText={setHeaderText}
+          paraText={paraText}
+          setParaText={setParaText}
+        />
+
           </motion.div>
 
           {/* Agentic AI Demo Interface Mockup */}

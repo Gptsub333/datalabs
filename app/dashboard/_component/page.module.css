@@ -1,5 +1,9 @@
 .dashboardContainer {
+<<<<<<< HEAD
   background-image: radial-gradient(circle at top left, hsl(var(--primary) / 0.05), transparent 30%);
+=======
+  background-image: gray-300;
+>>>>>>> dev
 }
 
 .cardHover {

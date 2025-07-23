@@ -9,8 +9,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/datalabs',  // Make sure this is set correctly
 }
 
 export default nextConfig
-
