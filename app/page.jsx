@@ -336,7 +336,7 @@ export default function Home() {
                           "Interactive data querying in meetings",
                         ].map((useCase, index) => (
                           <li key={index} className="flex items-start">
-                            <div className="h-3 w-3 md:h-4 md:h-4 rounded-full bg-blue-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <div className="h-3 w-3 md:h-4 rounded-full bg-blue-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-xs text-gray-700 para-font">{useCase}</span>
                           </li>
                         ))}
@@ -448,7 +448,7 @@ export default function Home() {
                           "Remote patient monitoring notes",
                         ].map((useCase, index) => (
                           <li key={index} className="flex items-start">
-                            <div className="h-3 w-3 md:h-4 md:h-4 rounded-full bg-purple-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <div className="h-3 w-3 md:h-4  rounded-full bg-purple-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-xs text-gray-700 para-font">{useCase}</span>
                           </li>
                         ))}
@@ -560,7 +560,7 @@ export default function Home() {
                           "Contactless authentication",
                         ].map((useCase, index) => (
                           <li key={index} className="flex items-start">
-                            <div className="h-3 w-3 md:h-4 md:h-4 rounded-full bg-blue-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <div className="h-3 w-3 md:h-4 rounded-full bg-blue-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-xs text-gray-700 para-font">{useCase}</span>
                           </li>
                         ))}
@@ -681,7 +681,7 @@ export default function Home() {
                           "Technical documentation Q&A",
                         ].map((useCase, index) => (
                           <li key={index} className="flex items-start">
-                            <div className="h-3 w-3 md:h-4 md:h-4 rounded-full bg-blue-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <div className="h-3 w-3 md:h-4  rounded-full bg-blue-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-xs text-gray-700 para-font">{useCase}</span>
                           </li>
                         ))}
@@ -800,7 +800,7 @@ export default function Home() {
                           "Inventory-free retail displays",
                         ].map((useCase, index) => (
                           <li key={index} className="flex items-start">
-                            <div className="h-3 w-3 md:h-4 md:h-4 rounded-full bg-blue-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <div className="h-3 w-3 md:h-4 rounded-full bg-blue-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-xs text-gray-700 para-font">{useCase}</span>
                           </li>
                         ))}

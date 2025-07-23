@@ -15,7 +15,9 @@ export default function Dashboard() {
     <div className={styles.dashboardContainer}>
       {/* Header Section */}
       <header className="pl-8 py-6 ">
+
         <h1 className="text-3xl font-semibold text-gray-700">Dashboard</h1>
+
       </header>
 
       <main className="flex-1 p-4 md:p-8 space-y-8">

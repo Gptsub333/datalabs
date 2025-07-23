@@ -10,6 +10,7 @@ import ResultsGrid from "./_components/results-grid"
 
 const BACKEND_URL_IMAGE_SEARCH=process.env.NEXT_PUBLIC_BACKEND_URL_IMAGE_SEARCH
 
+
 export default function HomePage() {
   const [mode, setMode] = useState("image")
   const [results, setResults] = useState([])
@@ -63,6 +64,7 @@ const handleSearch = async (query) => {
     setLoading(false);
   }
 };
+
 
 
   return (
