@@ -75,7 +75,7 @@ const features = [
   { name: "Summarizer", href: "/summarizer", icon: FileDigit, description: "Automatically summarize long documents and content" },
 
  
-
+ {name: "Handwritten to Digital Text", href: "handtext2text", icon: FileText, description:"Easily convert images of handwritten notes into editable, digital text."},
   { name: "Voice-Agent", href: "/voice-agent", icon: Mic, description: "Voice-enabled booking and health assistant" },
 
   { name: "Image Search", href: "/image-search", icon: FileSearch, description: "Search images using text or other images" },
@@ -112,7 +112,7 @@ const upcomingFeatures = [
 
 
 
-
+  
   { name: "Enterprise Search", icon: FileSearch, description: "Advanced search across all enterprise data" },
   { name: "Structured Extraction", icon: Layers, description: "Extract structured data from unstructured content" },
   {

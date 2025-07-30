@@ -1,8 +1,7 @@
 // app/layout.jsx
 import "./globals.css";
 import ClientProviders from "../components/ClientProviders"; // plain import!
-
-
+import { Toaster } from "@/components/ui/sonner"
 
 export const metadata = {
   title: "Agentic AI Demo Interface",
@@ -12,13 +11,14 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-
+  // Get subdomain from headers
 
   return (
     <html lang="en">
       <body>
         <ClientProviders >
           {children}
+           <Toaster />   
         </ClientProviders>
       </body>
     </html>
