@@ -27,7 +27,8 @@ import {
   CalendarClock,
   Wand2,
   ScanFace,
-  Activity
+  Activity,
+  BrainCircuit
 
 } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -78,6 +79,8 @@ const features = [
  {name: "Handwritten to Digital Text", href: "handtext2text", icon: FileText, description:"Easily convert images of handwritten notes into editable, digital text."},
   { name: "Voice-Agent", href: "/voice-agent", icon: Mic, description: "Voice-enabled booking and health assistant" },
 
+  { name: "EDA", href: "/eda", icon: BrainCircuit, description: "Analysis of data" },
+   {name:"x-ray-analysis", href:"/x-ray-analysis", icon: Stethoscope, description:"Analyze and report on X-ray images"},
   { name: "Image Search", href: "/image-search", icon: FileSearch, description: "Search images using text or other images" },
   { name: "Virtual Try-On", href: "/virtual-try-on", icon: Shirt, description: "Try garments on models using images" },
   { name: "PII Masker", href: "/pii-redactor", icon: FileX, description: "Remove PII from input text securely" },
