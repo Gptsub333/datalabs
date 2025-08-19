@@ -94,7 +94,7 @@ const features = [
 const upcomingFeatures = [
  
   
-  
+    { name: "calories-counter", href: "/calories-counter", icon: Activity, description: "Upload food images to get calorie counts and nutritional information" },
   {
     name: "PDF Extractor",
     href: "/pdf-extractor",
