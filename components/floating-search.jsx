@@ -76,7 +76,7 @@ const features = [
   { name: "Summarizer", href: "/summarizer", icon: FileDigit, description: "Automatically summarize long documents and content" },
 
  
- {name: "Handwritten to Digital Text", href: "handtext2text", icon: FileText, description:"Easily convert images of handwritten notes into editable, digital text."},
+  {name: "Handwritten to Digital Text", href: "handtext2text", icon: FileText, description:"Easily convert images of handwritten notes into editable, digital text."},
   { name: "Voice-Agent", href: "/voice-agent", icon: Mic, description: "Voice-enabled booking and health assistant" },
 
   { name: "EDA", href: "/eda", icon: BrainCircuit, description: "Analysis of data" },
